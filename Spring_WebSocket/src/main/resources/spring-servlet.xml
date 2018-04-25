@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- Bean头部 -->
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:mvc="http://www.springframework.org/schema/mvc" xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+            http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+            http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd
+             http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop-4.0.xsd
+            http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd">
+    <!-- 注解扫描包 -->
+    <!-- 自动扫描且只扫描@Controller -->
+    <context:component-scan base-package="com.pzh.websocket,com.pzh.controller,com.pzh.scheduling" />
+    <mvc:annotation-driven />
+
+    <!-- 资源访问路径映射，可以映射到任何地方（包括jar包内的资源）  -->
+    <!--
+    <mvc:resources mapping="/content/**" location="/content/" />
+    <mvc:resources mapping="/DataTables/**" location="/DataTables/" />
+    <mvc:resources mapping="/stylesheets/**" location="/stylesheets/" />
+    <mvc:resources mapping="/images/**" location="/images/" />
+    <mvc:resources mapping="/javascripts/**" location="/javascripts/" />
+    <mvc:resources mapping="/plugins/**" location="/plugins/" />
+    <mvc:resources mapping="/**/*.js" location="/"/>
+    <mvc:resources mapping="/**/*.css" location="/"/>
+    -->
+    <!-- 所有未处理URL再转到Web容器的默认处理器 -->
+    <mvc:default-servlet-handler />
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix" value="/WEB-INF/jsp/"></property>
+        <property name="suffix" value=".jsp"></property>
+    </bean>
+    <!--&lt;!&ndash; 日志记录 &ndash;&gt;-->
+    <!--<aop:aspectj-autoproxy proxy-target-class="true"></aop:aspectj-autoproxy>-->
+    <!--注解自动加载，不用配置映射器和适配器了-->
+    <!--<mvc:annotation-driven validator="validator"></mvc:annotation-driven>-->
+    <!--&lt;!&ndash; 代替下面的两行代码 &ndash;&gt;-->
+    <!--<mvc:annotation-driven />-->
+    <!--&lt;!&ndash; 静态资源访问 &ndash;&gt;-->
+    <!--<mvc:default-servlet-handler />-->
+    <!--<bean id="viewResolver"-->
+          <!--class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--<property name="prefix" value="/WEB-INF/jsp/"></property>-->
+        <!--<property name="suffix" value=".jsp"></property>-->
+    <!--</bean>-->
+
+    <!--<mvc:annotation-driven />-->
+
+
+    <!--&lt;!&ndash; 配制支持HTML后缀页面方式 &ndash;&gt;-->
+    <!--&lt;!&ndash; <bean id="htmlviewResolver" class="org.springframework.web.servlet.view.InternalResourceViewResolver">-->
+        <!--<property name="viewClass" value="com.southgis.ibase.main.util.HtmlResourceView"/>-->
+        <!--<property name="order" value="0" /> <property name="prefix" value="/WEB-INF/jsp"/>-->
+        <!--<property name="suffix" value=".html" /> <property name="contentType" value="text/html;charset=UTF-8"></property>-->
+        <!--</bean> &ndash;&gt;-->
+    <!--<bean id="multipartResolver"-->
+          <!--class="org.springframework.web.multipart.commons.CommonsMultipartResolver">-->
+        <!--<property name="defaultEncoding" value="utf-8" />-->
+        <!--<property name="maxUploadSize" value="10485760000" />-->
+        <!--<property name="maxInMemorySize" value="40960" />-->
+    <!--</bean>-->
+
+</beans>
