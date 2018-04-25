@@ -34,9 +34,13 @@ public class SocketController {
         return "success";
     }
 
+    /**
+     * 当需要给页面发信息时调用。
+     * */
     @RequestMapping("/message")
     public @ResponseBody String sendMessage() {
         boolean hasSend = handler.sendMessageToUser(4, new TextMessage("发送一条消息"));
+        //给所有绑定的用户发送        sendMessageToAllUsers
         System.out.println(hasSend);
         return "message";
     }
